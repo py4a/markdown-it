@@ -1,3 +1,120 @@
+8.4.2 / 2018-02-15
+------------------
+
+- Fix `--no-html` CLI option, #476.
+
+
+8.4.1 / 2018-02-15
+------------------
+
+- Fix smartquotes around softbreaks, #430.
+
+
+8.4.0 / 2017-08-24
+------------------
+
+- Updated CM spec compatibility to 0.28.
+
+
+8.3.2 / 2017-08-03
+------------------
+
+- Fix blockquote termination inside lists, #386.
+
+
+8.3.1 / 2017-03-06
+------------------
+
+- Fix blockquote termination by list item, #338.
+
+
+8.3.0 / 2017-02-16
+------------------
+
+- Fix table indentation issues, #325, #224.
+- Remove tabs at the beginning of the line in paragraphs.
+- Fix blockquote termination inside indented lists, #329.
+-  Better error message for bad input type, #324.
+
+
+8.2.2 / 2016-12-15
+------------------
+
+- Add `-o` / `--output` option to CLI, #312.
+
+
+8.2.1 / 2016-12-02
+------------------
+
+- Add missed h2..h6 to whitelisted block tags.
+
+
+8.2.0 / 2016-12-01
+------------------
+
+- Updated CM spec compatibility to 0.27 (no significant changes).
+- Fix backticks handle inside tables, #303.
+- Fix edge case for fenced blocks with `~~~` in info, #301.
+- Fix fallback to reference if link is not valid, #302.
+
+
+8.1.0 / 2016-11-03
+------------------
+
+- Make link parse helpers (`md.helpers`) pluggable, #299.
+
+
+8.0.1 / 2016-10-18
+------------------
+
+- Tables: allow tab characters in markup
+
+
+8.0.0 / 2016-09-16
+------------------
+
+- Updated CM spec compatibility to 0.26:
+  - Two consecutive newlines no longer terminate a list.
+  - Ordered list terminating a paragraph can now only start with 1.
+  - Adjust emphasis algorithm (`*foo**bar**baz*` is now parsed as `<strong>`
+    inside `<em>`).
+  - Fix tab width calculation inside lists and blockquotes.
+- Benchmarks src cleanup.
+- Remove testing in old nodes (but still use es5).
+
+
+7.0.1 / 2016-08-16
+------------------
+
+- Fence renderer: fix concat of class array, #276.
+- Code renderer: do not render double space before attrs, #275.
+- Replacer: disable replacements inside autolinks, #272.
+
+
+7.0.0 / 2016-06-22
+------------------
+
+- Bump `linkify-it` dependency to 2.0.0.
+  - `---` no longer terminates autodetected links by default.
+  - `md.linkifier.set('---', true)` will return old behaviour.
+- Major version bumped, because internals or `linkify-it` was changed.
+  You will not be affected anyhow, if not used direct access to
+  `require('linkify-it/re')` for customizations.
+
+
+6.1.1 / 2016-06-21
+------------------
+
+- Render `code_inline` & `code_block` attributes if exist.
+
+
+6.1.0 / 2016-06-19
+------------------
+
+- Updated `fence` renderer to not mutate token. Token stream should be
+  immutable after renderer call.
+
+
 6.0.5 / 2016-06-01
 ------------------
 

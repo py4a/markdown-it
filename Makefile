@@ -90,9 +90,12 @@ browserify:
 		browserify ./ -s markdownit \
 		) > dist/markdown-it.js
 	# Minify
-	uglifyjs dist/markdown-it.js -b beautify=false,ascii-only=true -c -m \
+	terser dist/markdown-it.js -b beautify=false,ascii_only=true -c -m \
 		--preamble "/*! ${NPM_PACKAGE} ${NPM_VERSION} ${GITHUB_PROJ} @license MIT */" \
 		> dist/markdown-it.min.js
+
+benchmark-deps:
+	npm install --prefix benchmark/extra/ -g marked@0.3.6 commonmark@0.26.0 markdown-it/markdown-it.git#2.2.1
 
 specsplit:
 	./support/specsplit.js good ./test/fixtures/commonmark/spec.txt > ./test/fixtures/commonmark/good.txt

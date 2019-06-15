@@ -145,6 +145,15 @@ describe('API', function () {
     assert(md.renderInline('_foo_'), '<em>foo</em>');
   });
 
+  it('input type check', function () {
+    var md = markdownit();
+
+    assert.throws(
+      function () { md.render(null); },
+      /Input data should be a String/
+    );
+  });
+
 });
 
 
@@ -194,8 +203,8 @@ describe('Misc', function () {
 
     md.enable('emphasis');
 
-    assert.strictEqual(md.render('___foo___'), '<p><strong><em>foo</em></strong></p>\n');
-    assert.strictEqual(md.renderInline('___foo___'), '<strong><em>foo</em></strong>');
+    assert.strictEqual(md.render('___foo___'), '<p><em><strong>foo</strong></em></p>\n');
+    assert.strictEqual(md.renderInline('___foo___'), '<em><strong>foo</strong></em>');
   });
 
   it('Should correctly check block termination rules when those are disabled (#13)', function () {
